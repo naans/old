@@ -1,0 +1,8 @@
+node_modules
+*.sublime-*
+photos
+!photos/.gitkeep
+videos
+!videos/.gitkeep
+tests/resources/upload
+!tests/resources/upload/.gitkeep

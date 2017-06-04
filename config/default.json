@@ -1,0 +1,7 @@
+{
+  "database": "naans",
+  "port": 3000,
+  "root": "/projects/naans",
+  "domain": "http://localhost:3000",
+  "photos_path": "photos"
+}

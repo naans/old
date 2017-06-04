@@ -1,0 +1,43 @@
+Category:
+	parent: Category
+	childs: Category[]
+	meals: Meal[]
+	name: string
+    description: string
+    hidden: Boolean
+
+Meal:
+    category: Category
+    picture: Picture
+    name: string
+    price: number
+    description: string
+    hidden: Boolean
+
+Menu:
+	suplements: Suplement[]
+    picture: Picture
+	meals: Meal[]
+	name: string
+	price: number
+    description: string
+    hidden: Boolean
+
+Suplement:
+	menu: Menu
+	name: string
+	price: number
+    description: string
+    hidden: Boolean
+
+Picture:
+	path: string
+	type: Enum('meal', 'menu', 'gallery')
+    hidden: Boolean
+
+Video:
+	path: string
+    hidden: Boolean
+
+Specials:
+
