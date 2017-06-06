@@ -3,6 +3,9 @@ const express    = require('express')
     , mongoose   = require('mongoose')
     , config     = require('config')
     , app        = express()
+    , Category   = require('./resources/category')
+    , Meal       = require('./resources/meal')
+    , Picture    = require('./resources/picture')
 
 mongoose.Promise = global.Promise
 mongoose.connect(`mongodb://localhost/${config.get('database')}`)
@@ -18,7 +21,11 @@ app.use(bodyParser.json({
     limit: '50mb'
 }))
 
-app.use('/api/categories', require('./routes/categories'))
+app.use('/pictures', express.static(`${config.get('root')}/${config.get('photos_path')}`))
+
+app.use('/api', Category.routes)
+app.use('/api', Meal.routes)
+app.use('/api', require('./resources/routes/picture'))
 
 app.listen(config.get('port'))
 

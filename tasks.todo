@@ -1,0 +1,16 @@
+Backend:
+  Resource Helper:
+    ✔ Generate Restful routes from schema @done (17-06-12 23:54)
+    ☐ Handle short and long versions of resources (relationships)
+  Test Helpers:
+    ✔ Seeder by schema @done (17-06-12 23:54)
+    ✔ test case helper @done (17-06-12 23:54)
+
+  ☐ Write resources
+  ☐ Writes tests
+  ☐ Handle Picture uploading and access
+  ☐ add User and authentification
+    need to change the resource generator ...
+
+Frentend:
+  ☐ ...

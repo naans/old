@@ -3,23 +3,38 @@ process.env.NODE_ENV = 'test'
 const chai      = require('chai')
     , should    = chai.should()
     , chaiHttp  = require('chai-http')
+    , Resource  = require('../../app/resources/category')
+    , Category  = Resource.model
+    , generate  = Resource.methods.generate
     , server    = require('../../app/run')
+    , actions   = require('../helpers').actions
 
 chai.use(chaiHttp)
 
 describe('Categories API', () => {
 
-    describe('GET /api/categories', () => {
+    var categories = []
 
-        it('returns success true', done => {
-            chai.request(server)
-            .get('/api/categories')
-            .then(res => {
-                res.should.have.status(200)
-                res.body.success.should.be.eql(true)
-                done()
-            })
-            .catch(done)
+    beforeEach(done => {
+        categories.length = 0
+        Category.remove({})
+        .then(() => generate())
+        .then(generatedCategory => Category.create(generatedCategory))
+        .then(insertedCategory => {
+            categories.push(insertedCategory)
+            return generate(2)
         })
+        .then(generatedCategories => Category.insertMany(generatedCategories))
+        .then(insertedCategories => {
+            insertedCategories.forEach(c => categories.push(c))
+            done()
+        })
+        .catch(done)
     })
+
+    actions.all(server, Resource, categories)
+    actions.add(server, Resource, categories)
+    actions.get(server, Resource, categories)
+    actions.edit(server, Resource, categories)
+    actions.remove(server, Resource, categories)
 })
