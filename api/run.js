@@ -22,6 +22,7 @@ app.use(bodyParser.json({
 }))
 
 app.use('/pictures', express.static(`${config.get('root')}/${config.get('photos_path')}`))
+app.use('/', express.static(`${config.get('root')}/public`))
 
 app.use('/api', Category.routes)
 app.use('/api', Meal.routes)

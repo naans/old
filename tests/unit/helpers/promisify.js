@@ -1,5 +1,5 @@
 const should    = require('chai').should()
-    , promisify = require('../../../app/helpers/promisify')
+    , promisify = require('../../../api/helpers/promisify')
     , DELAY     = 21
 
 describe('Promisify Helper', () => {

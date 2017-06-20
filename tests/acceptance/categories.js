@@ -3,10 +3,10 @@ process.env.NODE_ENV = 'test'
 const chai      = require('chai')
     , should    = chai.should()
     , chaiHttp  = require('chai-http')
-    , Resource  = require('../../app/resources/category')
+    , Resource  = require('../../api/resources/category')
     , Category  = Resource.model
     , generate  = Resource.methods.generate
-    , server    = require('../../app/run')
+    , server    = require('../../api/run')
     , actions   = require('../helpers').actions
 
 chai.use(chaiHttp)

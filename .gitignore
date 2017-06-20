@@ -8,3 +8,5 @@ tests/resources/upload
 !tests/resources/upload/.gitkeep
 config
 !config/default.json
+public
+!public/index.html

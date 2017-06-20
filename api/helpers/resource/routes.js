@@ -55,7 +55,7 @@ const add = (name, model, methods) => {
         .catch(err => {
             console.error(err)
             res.status(400)
-            res.json({ error: 'Unable to create the ${name} !'})
+            res.json({ error: `Unable to create the ${name} !`})
         })
     }
 }

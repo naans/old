@@ -10,7 +10,7 @@ root = true
 [*]
 # use the linux end of line
 end_of_line = lf
-# inserts a new line at the end of the file 
+# inserts a new line at the end of the file
 # (solves issues when using some linux commands like `wc -l`)
 insert_final_newline = true
 # deletes white spaces at the end of lines
@@ -24,8 +24,15 @@ charset = utf-8
 indent_style = space
 indent_size = 4
 
+[webpack.config.js]
+indent_size = 2
+
 # For JSON files
 # convert tab to 2 spaces
 [*.json]
+indent_style = space
+indent_size = 2
+
+[*.styl]
 indent_style = space
 indent_size = 2

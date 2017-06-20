@@ -6,13 +6,13 @@ const fs        = require('fs')
     , config    = require('config')
     , should    = chai.should()
     , chaiHttp  = require('chai-http')
-    , Picture   = require('../../app/resources/picture').model
-    , promisify = require('../../app/helpers/promisify')
+    , Picture   = require('../../api/resources/picture').model
+    , promisify = require('../../api/helpers/promisify')
     , execute   = promisify(require('child_process').exec)
-    , test      = require('../helpers').test(require('../../app/run'))
-    , {generate, short}  = require('../../app/resources/picture').methods
+    , test      = require('../helpers').test(require('../../api/run'))
+    , {generate, short}  = require('../../api/resources/picture').methods
 
-require('../../app/helpers/array')
+require('../../api/helpers/array')
 
 const FILES_PATH = `${config.get('root')}/tests/resources/files`
     , GOOGLE     = read(`${FILES_PATH}/google.jpg`, 'base64')

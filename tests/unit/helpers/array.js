@@ -1,5 +1,5 @@
 const should = require('chai').should()
-require('../../../app/helpers/array')
+require('../../../api/helpers/array')
 
 describe('Array Helpers', () => {
     it('ordered(): sorts and returns the array', () => {

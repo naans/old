@@ -15,7 +15,7 @@ Meal:
     hidden: Boolean
 
 Menu:
-	suplements: Suplement[]
+	suplements: Extra[]
     picture: Picture
 	meals: Meal[]
 	name: string
@@ -23,7 +23,7 @@ Menu:
     description: string
     hidden: Boolean
 
-Suplement:
+Extra:
 	menu: Menu
 	name: string
 	price: number
