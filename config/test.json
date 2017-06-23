@@ -1,1 +1,4 @@
-{}
+{
+  "database": "test-db",
+  "root": "/home/travis/build/naans/app"
+}

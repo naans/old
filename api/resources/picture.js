@@ -20,7 +20,9 @@ schema.virtual('path').get(function () {
 const short = picture => ({
     id:  picture.id,
     ext: picture.ext,
-    url: picture.url
+    url: picture.url,
+    description: picture.description,
+    type: picture.type
 })
 
 const faker = {

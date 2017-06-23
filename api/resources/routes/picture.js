@@ -56,6 +56,40 @@ const edit = (req, res) => {
         return res.json({ error: `Unable to find picture with id '${req.params.id}' !` })
     }
 
+    var buffer = null, dataType = null
+    if (req.body.picture) {
+        buffer   = Buffer.from(req.body.picture, 'base64')
+        dataType = type(buffer)
+        if (! dataType || ! ['jpg', 'png', 'bmp', 'flif', 'tif'].contains(dataType.ext)) {
+            req.body.picture = undefined
+        }
+    }
+
+    Picture.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, runValidators: true })
+    .then(picture => {
+        if (null == picture) {
+            res.status(404)
+            return res.json({ error: `Unable to find Picture with id '${req.params.id}' !` })
+        }
+        if (req.body.picture) {
+            return write(picture.path, buffer)
+                .then(() => res.json(short(picture)))
+        }
+        res.json(short(picture))
+    })
+    .catch(err => {
+        console.error(err)
+        res.status(500)
+        res.json({ error: 'Internal Server Error'})
+    })
+}
+
+const get = (req, res) => {
+    if (! req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
+        res.status(400)
+        return res.json({ error: `Unable to find picture with id '${req.params.id}' !` })
+    }
+
     Picture.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, runValidators: true })
     .then(picture => {
         if (null == picture) {
@@ -93,6 +127,7 @@ const remove = (req, res) => {
 router
     .get('/pictures', all)
     .post('/pictures', add)
+    .get('/pictures/:id', get)
     .put('/pictures/:id', edit)
     .delete('/pictures/:id', remove)
 

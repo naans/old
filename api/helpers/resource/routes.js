@@ -45,6 +45,8 @@ const all = (name, model, methods) => (req, res) => {
 const add = (name, model, methods) => {
     const fields = Object.keys(model.schema.obj)
     return (req, res) => {
+        console.log(req.body)
+        console.log(req.query)
         const missing = fields.filter(name => (undefined === req.body[name]))
         if (missing.length > 0) {
             res.status(400)
