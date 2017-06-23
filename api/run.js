@@ -28,6 +28,8 @@ app.use('/api', Category.routes)
 app.use('/api', Meal.routes)
 app.use('/api', require('./resources/routes/picture'))
 
+app.get('*', (req, res) => res.sendFile(`${config.get('root')}/public/index.html`))
+
 app.listen(config.get('port'))
 
 module.exports = app

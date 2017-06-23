@@ -19,14 +19,16 @@ export default class App extends React.Component {
     render() {
         return (
         <Router>
-            <div className="app">
-                <Route path="/" component={props => props.location.pathname.startsWith('/admin/') ? <AdminNavbar /> : <Navbar/> } />
+            <div>
+            <Route path="/" component={Navbar} />
+            <div className="container-fluid">
                 <Route exact path="/" component={Home} />
                 <Route path="/menu" component={Menu} />
                 <Route path="/contact-us" component={ContactUs} />
 
                 <Route path="/admin/home" component={AdminHome} />
                 <Route path="/admin/categories" component={AdminCategories} />
+            </div>
             </div>
          </Router>
         )
