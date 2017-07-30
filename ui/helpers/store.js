@@ -1,18 +1,6 @@
-import R        from 'ramda'
 import {plural} from 'pluralize'
 import {errors} from './notifiers'
-
-const apiURL = 'http://localhost:3000/api'
-
-const request = R.curry((method, route, opts) =>
-    fetch(`${apiURL}/${route}`, R.merge(opts, {method}))
-    .then(res => Promise.all([Promise.resolve(res.ok), res.json()]))
-    .then(pair => pair[0] ? pair[1] : Promise.reject(pair[1].error)))
-
-const get  = request('GET')
-const post = request('POST')
-const put  = request('PUT')
-const remove = request('DELETE')
+import {get, post, put, remove} from './request'
 
 class Collection {
 

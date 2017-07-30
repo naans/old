@@ -1,5 +1,3 @@
-process.env.NODE_ENV = 'test'
-
 const fs        = require('fs')
     , chai      = require('chai')
     , read      = require('fs').readFileSync

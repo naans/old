@@ -12,7 +12,7 @@ export const Navbar = props =>
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
                 </button>
-                {props.title ? <a className="navbar-brand" href="/"> {props.title} </a> : null}
+                {props.title ? props.title : null}
             </div>
             <div className="collapse navbar-collapse" id="navbar-collapse">
                 <ul className="nav navbar-nav">

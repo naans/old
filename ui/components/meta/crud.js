@@ -180,6 +180,8 @@ const crud = (store, fields, texts) => {
             this.history = props.history
             this.state = {data: {id: props.match.params.id}}
             this.cancel = this.cancel.bind(this)
+            infos.clear()
+            errors.clear()
         }
         confirm() {
             store.remove(this.state.data.id)
